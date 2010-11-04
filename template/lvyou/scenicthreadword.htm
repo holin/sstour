@@ -1,0 +1,15 @@
+<-{foreach from=$sql_hotelword item=hotelword}->
+<div id="xspace-itemreply">
+  <dl id="xspace-comment17">
+    <dt> <img src="image/water/none.gif"class="xspace-signavatar xspace-imgstyle" /> <a href="javascript:;" class="xspace-quote" onClick="fshowwindows('<-{$boardurl}->index.php?action=update&option=scenicword&type=postthread&id=<-{$hotelword.word_hid}->&Industry=<-{$hotelword.word_id}->&Keyword=<-{$hotelword.word_tid}->',1,'»Ø¸´ÁôÑÔ');">»Ø¸´</a> <a href="javascript:;" onClick="_confirm_msg_show('È·¶¨É¾³ýÁôÑÔ', 'Userloginon(\'<-{$boardurl}->index.php?action=update&option=scenicword&type=delthread&id=<-{$hotelword.word_hid}->&Industry=<-{$hotelword.word_id}->&Keyword=<-{$hotelword.word_tid}->\',\'\',\'getNews(\\\'showthreadword\\\',\\\'<-{$boardurl}->index.php?action=scenic&option=showthreadword&id=<-{$hotelword.word_hid}->&Industry=<-{$hotelword.word_tid}->\\\');\',\'getNews(\\\'showthreadword\\\',\\\'<-{$boardurl}->index.php?action=scenic&option=showthreadword&id=<-{$hotelword.word_hid}->&Industry=<-{$hotelword.word_tid}->\\\');\');', '', '');" class="xspace-del">É¾³ý</a> <-{$hotelword.word_username}-> <span class="xspace-smalltxt">ÁôÑÔÓÚ<-{$hotelword.word_date}->&nbsp;&nbsp; IP: <-{$hotelword.word_ip}-></span> </dt>
+    <dd><-{$hotelword.word_content|strip|strip_tags}-><-{if $hotelword.word_post!=''}->
+      <div class="xspace-guestbookreply">
+        <p><-{$hotelword.word_redate}-></p>
+        <-{$hotelword.word_post}-></div>
+      <-{/if}-></dd>
+  </dl>
+</div>
+<-{/foreach}->
+<-{if $fpageup}->
+<div class="left_links" style="width:100%"><-{$fpageup}-></div>
+<-{/if}->

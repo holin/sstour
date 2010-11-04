@@ -1,0 +1,10 @@
+<table width="86%" border="0" align="center" cellspacing="0">
+  <-{foreach from=$sql_news item=news}->
+  <tr>
+    <td><img src="image/lvyou/ico_right.gif" width="4" height="8" > <a href="index.php?action=news&option=single&id=<-{$news.new_id}->" class="link_title_white" title="<-{$news.new_subject}->"> <-{$news.new_subject|truncate:25:"...":true}-></a></td>
+  </tr>
+  <-{/foreach}->
+  <tr>
+    <td align="right"><a href="index.php?action=news&id=3">查看更多&gt;&gt;</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+</table>

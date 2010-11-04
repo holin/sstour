@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="<-{$charset}->"?>
+<rss version="2.0">
+  <channel>
+    <title>最新动态,嵊泗旅游网－东海旅游</title>
+    <link>http://www.sstour.net/</link>
+    <description>东海旅游,海钓 海 旅游_资讯信息</description>
+    <copyright>Copyright(C) sstour - Web2.0 最新动态--嵊泗旅游网</copyright>
+    <generator>嵊泗旅游网! Board by sstour Inc.</generator>
+    <lastBuildDate><-{$smarty.now|date_format:'%a, %d %b %Y %H:%M:%S %T'}-></lastBuildDate>
+    <ttl><-{$sql_info|@count}-></ttl>
+    <image>
+      <url>http://www.sstour.net/image/lvyou/jingqu_7.gif</url>
+      <title>最新动态,嵊泗旅游网－东海旅游</title>
+      <link>http://www.sstour.net/</link>
+    </image>    
+    <-{foreach from=$sql_info item=list}->
+    <-{assign var="columns" value=$list.new_type}->
+    <item>
+    <title><![CDATA[<-{$list.new_subject|strip|strip_tags|escape:'html'|default:'标题'}->]]></title>
+    <link>http://www.sstour.net/index.php?action=news&amp;option=single&amp;id=<-{$list.new_id}-></link>
+    <guid>http://www.sstour.net/index.php?action=news&amp;option=single&amp;id=<-{$list.new_id}-></guid>
+    <description>
+      <![CDATA[<-{$list.new_content|strip|strip_tags|escape:'html'|default:'简介'}->]]>
+    </description>
+    <category><-{$columnsArray.$columns|default:'最新动态'}-></category>
+    <author><-{$list.new_writer|strip|strip_tags|default:'嵊泗'}-></author>
+    <pubDate><-{$list.new_date|date_format:'%a, %d %b %Y %T'}-></pubDate>
+    </item>
+    <-{/foreach}->
+  </channel>
+</rss>

@@ -1,0 +1,18 @@
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="2" bgcolor="#BFE8FE">
+  <tr>
+    <td ><table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="79%" class="txt_title_white">&nbsp;<img src="image/lvyou/ico_white.gif" width="7" height="7"> 政务公开</td>
+          <td width="21%" class="txt_title_white"><img src="image/lvyou/more.gif" width="33" height="13"></td>
+        </tr>
+      </table></td>
+  </tr>
+  
+  <tr>
+    <td ><marquee width="100%" height="100" scrollamount=2 direction=up id="showmessage"> 
+<-{foreach from=$sql_news item=news}->
+<div class="line_bg"><img src="image/lvyou/icon_6.gif" width="4" height="5"> <a href="index.php?action=news&option=single&id=<-{$news.new_id}->" title="<-{$news.new_subject}->"><-{$news.new_subject|truncate:25:"...":true}-></a></div>
+<-{/foreach}->
+</marquee></td>
+  </tr>
+</table>

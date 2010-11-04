@@ -1,0 +1,14 @@
+.DS_Store
+Gemfile.lock
+Thumbs.db
+.idea
+log/*
+tmp/*
+UploadFiles/*
+cache/*
+cache/*
+data/*
+dv/*
+logs/*
+bbs/*
+attach/*

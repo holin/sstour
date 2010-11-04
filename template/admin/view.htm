@@ -1,0 +1,30 @@
+<form name="formupdate" method="post" action="">
+  <table width=98% align=center cellspacing=1 cellpadding=3 class=i_table>
+    <tr>
+      <td colspan="8" class=head> 流 量 统 计</td>
+    </tr>
+	<tr>
+      <td class=b>板块</td>
+	  <td class=b>分类</td>
+      <td class=b>详细</td>
+      <td class=b>链接地址</td>
+      <td class=b>浏览ip</td>
+	  <td class=b>时间</td>
+	</tr>
+<-{foreach from=$sql_link item=link}->
+<-{assign var="action" value=$link.view_action}->
+<-{assign var="option" value=$link.view_option}->
+	<tr>
+      <td class=b><-{$modle.$action|strip|strip_tags}-></td>
+	  <td class=b><-{$roads.$option|strip|strip_tags}-></td>
+	  <td class=b><-{$link.view_detail|strip|strip_tags}-></td>
+      <td class=b><-{$link.view_url|strip|strip_tags}-></td>
+      <td class=b><-{$link.view_ip|strip|strip_tags}-></td>
+      <td class=b><-{$link.view_time|strip|strip_tags}-></td>
+	</tr>
+<-{/foreach}->
+	<tr>
+      <td colspan="8" class=b><-{$fpageup}-></td>
+    </tr>
+  </table>
+</form>

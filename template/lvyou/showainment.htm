@@ -1,0 +1,37 @@
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="2" bgcolor="#FFFFFF">
+  <tr>
+    <td class="txt_title_white">&nbsp;<img src="image/lvyou/ico_white.gif" width="7" height="7"> 友情链接</td>
+  </tr>
+  <tr>
+    <td><select name="select2" style="width:186px;" onChange="window.open('<-{$boardurl}->goto.php?'+this.options[this.options.selectedIndex].value)">
+        <option>=====县政府各网站=====</option>
+		<-{foreach from=$sql_link5 item=link5}->
+		<option value="<-{$link5.link_url}->"><-{$link5.link_subject}-></option>
+		<-{/foreach}->
+      </select></td>
+  </tr>
+  <tr>
+    <td><select name="select3" style="width:186px;" onChange="window.open('<-{$boardurl}->goto.php?'+this.options[this.options.selectedIndex].value)">
+        <option>==其它区县(市)旅游网站==</option>
+		<-{foreach from=$sql_link4 item=link4}->
+		<option value="<-{$link4.link_url}->"><-{$link4.link_subject}-></option>
+		<-{/foreach}->
+      </select></td>
+  </tr>
+  <tr>
+    <td><select name="select4" style="width:186px;" onChange="window.open('<-{$boardurl}->goto.php?'+this.options[this.options.selectedIndex].value)">
+        <option>===县相关旅游企业网站===</option>
+		<-{foreach from=$sql_link3 item=link3}->
+		<option value="<-{$link3.link_url}->"><-{$link3.link_subject}-></option>
+		<-{/foreach}->
+      </select></td>
+  </tr>
+  <tr>
+    <td><select name="select5" style="width:186px;" onChange="window.open('<-{$boardurl}->goto.php?'+this.options[this.options.selectedIndex].value)">
+        <option>=======合作网站=======</option>
+		<-{foreach from=$sql_link2 item=link2}->
+		<option value="<-{$link2.link_url}->"><-{$link2.link_subject}-></option>
+		<-{/foreach}->
+      </select></td>
+  </tr>
+</table>

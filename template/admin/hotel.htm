@@ -1,0 +1,56 @@
+<form name="formupdate" method="post" action="">
+<table width=98% align=center cellspacing=1 cellpadding=3 class=i_table>
+  <tr>
+    <td colspan="7" class=head> 酒 店 信 息 管 理</td>
+  </tr>
+  <tr>
+    <td class=b>酒店名</td>
+    <td class=b>星级</td>
+    <td class=b>用户</td>
+	<td class=b>联系人</td>
+	<td class=b>电话</td>
+	<td class=b>顺序</td>
+    <td class=b>操作</td>
+  </tr>
+  <-{foreach from=$sql_hotel item=hotel}->
+  <tr id='list<-{$hotel.hot_id}->' onclick="onclickclass('list<-{$hotel.hot_id}->');" class=movclick style='cursor: hand;'>
+    <td><a href="index.php?action=hotel&option=single&id=<-{$hotel.hot_id}->" target="_blank"><-{$hotel.hot_subject}-></a></td>
+    <td id="showstart<-{$hotel.hot_id}->"><select onchange="getNews('showstart<-{$hotel.hot_id}->','admin.php?action=<-{$action}->&option=start&id=<-{$hotel.hot_id}->&Industry='+this.options[selectedIndex].value);" name="hot_start[<-{$hotel.hot_id}->]">
+	<option value="0" <-{if $hotel.hot_start == '0'}-> selected="selected"<-{/if}->>无</option>
+	<option value="1" <-{if $hotel.hot_start == '1'}-> selected="selected"<-{/if}->>一星级</option>
+	<option value="2" <-{if $hotel.hot_start == '2'}-> selected="selected"<-{/if}->>二星级</option>
+	<option value="3" <-{if $hotel.hot_start == '3'}-> selected="selected"<-{/if}->>三星级</option>
+	<option value="4" <-{if $hotel.hot_start == '4'}-> selected="selected"<-{/if}->>四星级</option>
+	<option value="5" <-{if $hotel.hot_start == '5'}-> selected="selected"<-{/if}->>五星级</option>
+	</select></td>
+    <td><-{$hotel.hot_username}-></td>
+	<td><-{$hotel.hot_contact}-></td>
+	<td><-{$hotel.hot_phone}-></td>
+	<td id='showsp<-{$hotel.hot_id}->'><input size="4" type="text" name="sp['<-{$hotel.hot_sp}->']" value="<-{$hotel.hot_sp}->" onblur="getNews('showsp<-{$hotel.hot_id}->','admin.php?action=<-{$action}->&option=actsp&id=<-{$hotel.hot_id}->&Industry='+this.value);"></td>
+    <td id='showfilg<-{$hotel.hot_id}->'>
+	<-{if $hotel.hot_pass=='1'}->
+	<a href="javascript:getNews('showfilg<-{$hotel.hot_id}->','admin.php?action=<-{$action}->&option=delpass&id=<-{$hotel.hot_id}->');">取消</a> 
+	<-{else}->
+	<a href="javascript:getNews('showfilg<-{$hotel.hot_id}->','admin.php?action=<-{$action}->&option=pass&id=<-{$hotel.hot_id}->');">通过</a> 
+	<-{/if}->
+	<a href="javascript:
+	_confirm_msg_show('确定删除酒店','getNews(\'showfilg<-{$hotel.hot_id}->\',\'admin.php?action=<-{$action}->&option=delhotel&id=<-{$hotel.hot_id}->\');$(\'list<-{$hotel.hot_id}->\').parentNode.removeChild($(\'list<-{$hotel.hot_id}->\'));','','');">删除</a></td>
+  </tr>
+  <-{/foreach}->
+  <tr>
+    <td colspan="7" class=b><-{$fpageup}-></td>
+  </tr>
+  <tr>
+    <td colspan="7" class=b><select name="getids" onchange="document.getElementById('getid').value=this.options[selectedIndex].value">
+          <-{if $type == "2"}->
+          <option value="1">酒店名</option>     
+		  <option value="2" selected="selected">用户名</option>     
+          <-{else}->
+		  <option value="1" selected="selected">酒店名</option>
+          <option value="2">用户名</option>
+          <-{/if}->
+        </select><input type="hidden" name="getid" value="<-{$type}->" />
+		关键字:<input name="Keyword" id=Keyword type="text" size="20" value="<-{$Keyword}->"><a href="javascript:getNews('showtable','admin.php?action=<-{$action}->&type='+document.getElementById('getid').value+'&Keyword='+escape(document.getElementById('Keyword').value));">查询</a></td>
+  </tr>
+</table>
+</form>

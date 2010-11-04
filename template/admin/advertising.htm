@@ -1,0 +1,33 @@
+<form name="formupdate" method="post" action="">
+  <table width=98% align=center cellspacing=1 cellpadding=3 class=i_table>
+    <tr>
+      <td colspan="3" class=head> 插 件 设 置 管 理</td>
+    </tr>
+<-{foreach from=$sql_hack item=config}->
+	<tr>
+      <td class=head>插件</td>
+	  <td class=head>广告代码</td>
+	  <td class=head>说明</td>
+	</tr>
+	<tr>
+      <td class=b><-{$config.hack_subject}->[<-{$config.hack_action}->]<br />头部广告（使用html格式）</td>
+	  <td class=b><textarea name="hack_adhead[<-{$config.hack_action}->]" cols="60" rows="5"><-{$config.hack_adhead}-></textarea></td>
+	  <td class=b>需要在每个前台插件的页面里放上<BR />&lt;-{$cache_config.hack_adhead}-&gt;</td>	    
+	</tr>
+	<tr>
+      <td class=b><-{$config.hack_subject}->[<-{$config.hack_action}->]<br />中间广告（使用html格式）</td>
+	  <td class=b><textarea name="hack_adbody[<-{$config.hack_action}->]" cols="60" rows="5"><-{$config.hack_adbody}-></textarea></td>
+	  <td class=b>需要在每个前台插件的页面里放上<BR />&lt;-{$cache_config.hack_adbody}-&gt;</td>	    
+	</tr>
+	<tr>
+      <td class=b><-{$config.hack_subject}->[<-{$config.hack_action}->]<br />尾部广告（使用html格式）</td>
+	  <td class=b><textarea name="hack_adfoot[<-{$config.hack_action}->]" cols="60" rows="5"><-{$config.hack_adfoot}-></textarea></td>
+	  <td class=b>需要在每个前台插件的页面里放上<BR />&lt;-{$cache_config.hack_adfoot}-&gt;</td>	    
+	</tr>
+<-{/foreach}->
+  </table>
+  <br />
+  <center><input type=hidden name=update value='update'> &nbsp; 
+    <input type="button" name="Submit" id=Submit value=" 提 交 " onClick="saveUserlogin('admin.php?action=<-{$action}->&option=<-{$option}->','formupdate','','getNews(\'showtable\',\'admin.php?action=<-{$action}->\')')">
+  </center>
+</form>

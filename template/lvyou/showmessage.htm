@@ -1,0 +1,5 @@
+<marquee width="100%" height="100" scrollamount=2 direction=up id="showmessage"> 
+<-{foreach from=$sql_showmessage item=showmessage}->
+<div class="line_bg"><img src="image/lvyou/icon_6.gif" width="4" height="5"> <a href="index.php?action=info&option=single&id=<-{$showmessage.new_id}->" title="<-{$showmessage.new_subject}->"><-{$showmessage.new_subject|truncate:25:"...":true}-></a></div>
+<-{/foreach}->
+</marquee>

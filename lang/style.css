@@ -1,0 +1,111 @@
+/* 综合设置 */
+* {
+	margin: 0;
+	word-wrap:break-word;
+	word-break: break-all;
+	font-size: 12px;
+}
+/* 在IE中实行强制换行 */
+body {
+	margin: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	color: #333;
+	text-align:center;
+	background-attachment:fixed;
+	padding:0;
+	scrollbar-face-color: #C5D5FC;
+	scrollbar-shadow-color: #FFFFFF;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-3dlight-color: #C5D5FC;
+	scrollbar-darkshadow-color: #7C9FD3;
+	scrollbar-track-color: #FFFFFF;
+	scrollbar-arrow-color: #4D6185;
+	font-family: verdana,arial,helvetica;
+	font-size: 12px;
+}
+a {font-size:12px;color: #5F5F5F;text-decoration: none;cursor: hand;}
+	a:hover {color: #000000;text-decoration: underline;}
+	a.link {color: #5C99DC; text-decoration: none;}
+	a.hover {color: #5C99DC; text-decoration: underline;}
+	a.visited {color: #5C99DC; text-decoration: none;}
+	a.underline {text-decoration:underline;}
+	a.underline:hover {text-decoration:none;}
+img {border: none;cursor:hand;}
+.ajaxdiv { position:absolute; padding: 5px; border: 1px solid #BBB; background: #FCFFEF; text-align: left; }
+.itemtag {color: #666;background: #F9F9F9;border-top: 1px solid #C8C8C8;border-bottom: 1px solid #C8C8C8;text-align: right;}
+.imgbg {filter: Alpha(Opacity=80, FinishOpacity=100)}
+/* 分页 */
+.pages {text-align:right;clear:left;text-align:center;font-size:12px;}
+	.pages a,.pages span {display: block;float: left;padding:0;margin:0 2px 0 0;border:1px solid #9AAFE5;background:#f9fcff;}
+	.pages span.current {border: 1px solid #2E6AB1;font-weight: bold;background: #2E6AB1;color: #fff;}
+	.pages a:link,.pages a:visited {border: 1px solid #9AAFE5;text-decoration: none;background:#EDFFE4;}
+	.pages a:hover {border-color: #2E6AB1;border:#37A717;}
+	.pages a.nextprev {font-weight: bold;}
+	.pages span.nextprev,.pages span.stat {border: 1px solid #ddd;color: #999;}
+* html .pages a.nextprev,.pages span.nextprev,.pages span.stat {padding: 0 2px 0 2px;}
+div.nextprev {font-size: 12px;font-weight: bold;text-align: right;color: #EC5800;border-top: 1px solid #f3f3f3;padding: 5px;}
+	div.nextprev span.prev {float: left;}
+/* 表单 */
+form{margin:0px;display:inline;}
+input, textarea, button, select {border: 1px solid #3398CC;border-collapse:collapse;}
+.username{
+    background-image:url(../image/admin/username.gif);
+	background-position: 1px 1px;
+	background-repeat:no-repeat;
+	padding-left:20px;
+	height:20px;
+	width:160px;
+	FONT-SIZE: 12px;}
+.password{
+    background-image:url(../image/admin/password.gif);
+	background-position: 1px 1px;
+	background-repeat:no-repeat;
+	padding-left:20px;
+	height:20px;
+	width:160px;
+	FONT-SIZE: 12px;}
+.gdcode{
+    background-image:url(../image/admin/warning.gif);
+	background-position: 1px 1px;
+	background-repeat:no-repeat;
+	padding-left:20px;
+	height:20px;
+	width:80px;
+	FONT-SIZE: 12px;}
+.menu1{
+position:absolute;
+width:80px;
+line-height: 12px;
+border:1px solid #9CDD75;
+background-color:#F1FBEC;
+display: block;
+filter:Alpha(opacity=90);
+float: left;
+}
+.menu2{
+position:absolute;
+width:80px;
+line-height: 12px;
+border:1px solid #9CDD75;
+background-color:#F1FBEC;
+display:none;
+float: left;
+}
+.bodyer {background:#FFF;width:755px;margin-top:5px;}
+.navigation {
+	color: #333;
+	margin: 0 auto;
+	text-align: left;
+	border:1px solid #A9BB8E;
+}
+.navigation .pages {float: left;}
+.navigation .build span {
+	width: 60px;
+	height: 25px;
+	text-align: center;
+	padding-top: 8px;
+	background:url(../image/rice/nav_icon.gif) bottom repeat-x center;
+}
+.navigation .build .buildtitle {float: left;width:20%;text-align:right;}

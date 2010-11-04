@@ -1,0 +1,13 @@
+columnstf[14]='0';columnsvf[14]='政务公开';
+columnstf[13]='0';columnsvf[13]='节庆活动';
+columnstf[12]='0';columnsvf[12]='特色活动';
+columnstf[11]='0';columnsvf[11]='本周推荐';
+columnstf[9]='0';columnsvf[9]='政策法规';
+columnstf[8]='0';columnsvf[8]='旅行社';
+columnstf[7]='0';columnsvf[7]='友情链接';
+columnstf[6]='0';columnsvf[6]='旅游资讯';
+columnstf[5]='0';columnsvf[5]='娱乐场所';
+columnstf[4]='0';columnsvf[4]='嵊泗海钓';
+columnstf[3]='0';columnsvf[3]='旅游小帖士';
+columnstf[2]='0';columnsvf[2]='旅游线路';
+columnstf[1]='0';columnsvf[1]='最新动态';

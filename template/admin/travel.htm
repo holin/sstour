@@ -1,0 +1,48 @@
+<form name="formupdate" method="post" action="">
+<table width=98% align=center cellspacing=1 cellpadding=3 class=i_table>
+  <tr>
+    <td colspan="7" class=head> 旅 行 社 信 息 管 理</td>
+  </tr>
+  <tr>
+    <td class=b>旅行社名</td>
+    <td class=b>星级</td>
+    <td class=b>用户</td>
+	<td class=b>联系人</td>
+	<td class=b>电话</td>
+	<td class=b>顺序</td>
+    <td class=b>操作</td>
+  </tr>
+  <-{foreach from=$sql_hotel item=hotel}->
+  <tr id='list<-{$hotel.sc_id}->' onclick="onclickclass('list<-{$hotel.sc_id}->');" class=movclick style='cursor: hand;'>
+    <td><a href="index.php?action=tracel&option=single&id=<-{$hotel.sc_id}->" target="_blank"><-{$hotel.sc_subject}-></a></td>
+    <td><-{$hotel.sc_start}-></td>
+    <td><-{$hotel.sc_username}-></td>
+	<td><-{$hotel.sc_contact}-></td>
+	<td><-{$hotel.sc_phone}-></td>
+	<td id='showsp<-{$hotel.sc_id}->'><input size="4" type="text" name="sp['<-{$hotel.sc_sp}->']" value="<-{$hotel.sc_sp}->" onblur="getNews('showsp<-{$hotel.sc_id}->','admin.php?action=<-{$action}->&option=actsp&id=<-{$hotel.sc_id}->&Industry='+this.value);"></td>
+    <td id='showfilg<-{$hotel.sc_id}->'>
+	<-{if $hotel.sc_pass=='1'}->
+	<a href="javascript:getNews('showfilg<-{$hotel.sc_id}->','admin.php?action=<-{$action}->&option=delpass&id=<-{$hotel.sc_id}->');">取消</a> 
+	<-{else}->
+	<a href="javascript:getNews('showfilg<-{$hotel.sc_id}->','admin.php?action=<-{$action}->&option=pass&id=<-{$hotel.sc_id}->');">通过</a> 
+	<-{/if}->
+	<a href="javascript:_confirm_msg_show('确定删除旅行社','getNews(\'showfilg<-{$hotel.sc_id}->\',\'admin.php?action=<-{$action}->&option=delhotel&id=<-{$hotel.sc_id}->\');$(\'list<-{$hotel.sc_id}->\').parentNode.removeChild($(\'list<-{$hotel.sc_id}->\'));','','');">删除</a></td>
+  </tr>
+  <-{/foreach}->
+  <tr>
+    <td colspan="7" class=b><-{$fpageup}-></td>
+  </tr>
+  <tr>
+    <td colspan="7" class=b><select name="getids" onchange="document.getElementById('getid').value=this.options[selectedIndex].value">
+          <-{if $type == "2"}->
+          <option value="1">旅行社名</option>     
+		  <option value="2" selected="selected">用户名</option>     
+          <-{else}->
+		  <option value="1" selected="selected">旅行社名</option>
+          <option value="2">用户名</option>
+          <-{/if}->
+        </select><input type="hidden" name="getid" value="<-{$type}->" />
+		关键字:<input name="Keyword" id=Keyword type="text" size="20" value="<-{$Keyword}->"><a href="javascript:getNews('showtable','admin.php?action=<-{$action}->&type='+document.getElementById('getid').value+'&Keyword='+escape(document.getElementById('Keyword').value));">查询</a></td>
+  </tr>
+</table>
+</form>

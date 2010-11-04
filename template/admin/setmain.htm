@@ -1,0 +1,51 @@
+<form name="formupdate" method="post" action="">
+  <table width=98% align=center cellspacing=1 cellpadding=3 class=i_table>
+    <tr>
+      <td colspan="2" class=head> 引 导 页 设 置 管 理</td>
+    </tr>
+	<tr>
+      <td class=b>引导页标题:<BR />
+背景颜色，开启后将在首页显示</td>
+      <td class=b><input type="text" size="30" name="config[title]" value="<-{$title}->"></td>
+    </tr>
+    <tr>
+      <td class=b>背景颜色:<BR />
+背景颜色，开启后将在首页显示</td>
+      <td class=b><input type="text" size="30" name="config[bgcolor]" value="<-{$bgcolor}->"></td>
+    </tr>
+	<tr>
+      <td class=b>背景图片:<BR />
+背景图片，开启后将在首页显示</td>
+      <td class=b><input type="text" size="30" name="config[bgimage]" value="<-{$bgimage}->"></td>
+    </tr>
+	<tr>
+      <td class=b>背景透明度:<BR />
+背景透明度，引导页背景在首页的透明度</td>
+      <td class=b><input onkeyup="value=value.replace(/[^\d]/g,'')  " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" name="config[transparent]" value="<-{$transparent}->"></td>
+    </tr>
+	<tr>
+      <td class=b>播放代码:<BR />
+播放代码,使用播放代码控制引导页出现的信息<br />
+(使用非嵌套模式时外部连接为<font color=red>&lt;a href='javascript:document.getElementById('setmain').innerHTML='';document.getElementById('setmain').style.width='0';document.getElementById('setmain').style.height='0';'&gt;进入首页&lt;/a&gt;</font>)</td>
+      <td class=b><textarea name="config[info]" cols="40" rows="5"><-{$info}-></textarea></td>
+    </tr>
+	<tr>
+      <td class=b>嵌套方式:<BR />
+嵌套方式,选择是嵌套在首页，否则新开页面显示引导页</td>
+      <td class=b>
+<-{if $nesting eq "1"}->
+	<input type="radio" name="config[nesting]" value="1" checked="checked" />是
+	<input type="radio" name="config[nesting]" value="0" />否
+<-{else}->
+	<input type="radio" name="config[nesting]" value="1" />是
+	<input type="radio" name="config[nesting]" value="0" checked="checked" />否
+<-{/if}->
+	  
+	  </td>
+    </tr>
+  </table>
+  <br>
+  <center><input type=hidden name=update value='update'> &nbsp; 
+    <input type="button" name="Submit" id=Submit value=" 提 交 " onClick="saveUserlogin('admin.php?action=<-{$action}->&option=<-{$option}->','formupdate','','getNews(\'showtable\',\'admin.php?action=<-{$action}->\');')">
+  </center>
+</form>

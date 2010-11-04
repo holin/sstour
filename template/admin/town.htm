@@ -1,0 +1,34 @@
+<form name="formupdate" method="post" action="">
+  <table width=98% align=center cellspacing=1 cellpadding=3 class=i_table style="table-layout: fixed;word-wrap:break-word;">
+    <tr>
+      <td class=head> 城 市 管 理</td>
+    </tr>
+	<tr>
+      <td class=b><-{$showtext}-></td>
+    </tr>
+  </table>
+  <br>
+  <table width=98% align=center cellspacing=1 cellpadding=3 class=i_table>
+    <tr>
+      <td colspan="3" class=head> 添 加 城 市</td>
+    </tr>
+	<tr>
+      <td class=b>城市名</td>
+	  <td class=b>顺序</td>
+      <td class=b>属于组</td>
+	</tr>
+	<tr>
+      <td class=b><input type="text" size="20" name="addsubject" value=""></td>
+	  <td class=b><input type="text" size="4" name="addsp" value="0"></td>
+      <td class=b><select name="addlive">
+	  <-{foreach from=$soptions item=soption}->
+	  <-{$soption}->
+	  <-{/foreach}->
+	  </select></td>
+	</tr>
+  </table>
+  <BR />
+  <center><input type=hidden name=update value='update'> &nbsp; 
+    <input type="button" name="Submit" id=Submit value=" 提 交 " onClick="saveUserlogin('admin.php?action=<-{$action}->&option=<-{$option}->','formupdate','','getNews(\'showtable\',\'admin.php?action=<-{$action}->\')')">
+  </center>
+</form>

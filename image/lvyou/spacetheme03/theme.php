@@ -1,0 +1,10 @@
+<?php
+
+$themes = array(
+	'name'		=> '¿õÒ°¼ÇÒä',
+	'preview'	=> 'preview.jpg',
+	'css'		=> 'style.css',
+	'thumb'		=> 'thumb_preview.jpg'
+);
+
+?>

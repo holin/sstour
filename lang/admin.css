@@ -1,0 +1,102 @@
+.b{background : #f7f7f7;}
+.bold{font-weight : bold;}
+.head a{color : #ffffff;}
+.head td{color : #ffffff;}
+.head_2 td{color : #000000;}
+.head_2{background : #ced4e8;}
+.head{color : #ffffff;background : #739ace;font-weight : bold;}
+.hr{border-top : 1px solid #739ace;border-bottom : 0;border-left : 0;border-right : 0;}
+.i_table{border : 1px solid #739ace;background : #dee3ef;}
+.left_over{background : #f0f0f0;}
+.smalltxt{font-family : tahoma, verdana;font-size : 12px;color : #000000;}
+a:hover{text-decoration : underline;}
+a{text-decoration : none;color : #000000;cursor : hand;}
+body{font-family : verdana;font-size : 12px;margin : 0;color : #000000;background : #f7f7f7;
+scrollbar-face-color: #D8E2E7;
+scrollbar-shadow-color: #D8E2E7; 
+scrollbar-highlight-color: #FFFFFF;
+scrollbar-3dlight-color: #96AABD; 
+scrollbar-darkshadow-color: #96AABD; 
+scrollbar-track-color: #C2CACF;
+scrollbar-arrow-color: #606D79;}
+img{text-decoration : none;border : none;}
+select{font-size : 12px;color : #000000;background-color : #e0e2f1;}
+table{word-break : break-all;word-wrap : break-word;border-top : 0px;border-left : 0px;border-bottom : 2px;table-layout : auto;}
+td{border-right : 1px;border-top : 0px;font-size : 12px;color : #000000;}
+textarea,input,object,select,option{font-family : arial, tahoma;font-size : 12px;color : #000000;font-weight : normal;background-color : #f7f7f7;border-top-width : 1px;border-right-width : 1px;border-bottom-width : 1px;border-left-width : 1px;text-decoration : none;border : 1px solid #333333;}
+textarea,input,object{font-size : 12px;}
+.imgbg {filter: Alpha(Opacity=80, FinishOpacity=100)}
+.itemtag {
+	color: #666;
+	background: #F9F9F9;
+	border-top: 1px solid #C8C8C8;
+	border-bottom: 1px solid #C8C8C8;
+}
+.movclick {background-color:#F1F1F1}
+.onclick{background-color:#FF9900;}
+/*--------- Page Numbers ------------*/
+.pages {
+	font: 1em Arial, Helvetica, sans-serif;
+	padding: 0.5em 0 1.5em 1em;
+	margin: 1em 0;
+	clear: left;
+}
+
+.pages a,.pages span {
+	display: block;
+	float: left;
+	padding: 0.2em 0.4em;
+	margin: 0 0.1em 0.2em 0;
+	border: 1px solid #fff;
+	background: #fff;
+}
+
+.pages span.current {
+	border: 1px solid #2E6AB1;
+	font-weight: bold;
+	background: #2E6AB1;
+	color: #fff;
+}
+
+.pages a:link,.pages a:visited {
+	border: 1px solid #9AAFE5;
+	text-decoration: none;
+}
+
+.pages a:hover {
+	border-color: #9AAFE5;
+}
+
+.pages a.nextprev {
+	font-weight: bold;
+}
+.pages span.nextprev,.pages span.stat {
+	border: 1px solid #ddd;
+	color: #999;
+}
+* html .pages a.nextprev,.pages span.nextprev,.pages span.stat {
+	padding: 0.25em 0.5em 0.2em 0.5em;
+}
+
+div.nextprev {font-size: 14px;font-weight: bold;text-align: right;color: #EC5800;border-top: 1px solid #f3f3f3;padding: 5px;}
+div.nextprev span.prev {float: left;}
+
+.trmule	{background: window;}
+.tdmule {color: windowtext; font: menu; padding: 1px; padding-left: 5px; padding-right: 5px;}
+
+.tablemule {border-top: 1px solid buttonshadow;
+			 border-left: 1px solid buttonshadow;
+			 border-right: 1px solid buttonhighlight;
+			 border-bottom: 1px solid buttonhighlight;
+			 margin: 20px;}
+.theadmule .tdmule {background: buttonface; font: menu; border: 1px outset white;
+			 cursor: default; padding-top: 0; padding: bottom: 0;
+			 border-top: 1px solid buttonhighlight;
+			 border-left: 1px solid buttonhighlight;
+			 border-right: 1px solid buttonshadow;
+			 border-bottom: 1px solid buttonshadow;
+			 height: 16px;
+			 }
+.thead .arrow {font-family: webdings; color: black; padding: 0; font-size: 10px;
+			height: 11px; width: 10px; overflow: hidden;
+			margin-bottom: 2; margin-top: -3; padding: 0; padding-top: 0; padding-bottom: 2;}

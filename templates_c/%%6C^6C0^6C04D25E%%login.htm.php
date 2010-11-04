@@ -1,0 +1,36 @@
+<?php /* Smarty version 2.6.10, created on 2010-06-04 04:53:18
+         compiled from login.htm */ ?>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="title_blue"> 用户登录</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td class="td_login2"><table border="0" cellspacing="3" cellpadding="0" align="center">
+      <form method="post" name="loginin" id="loginin">
+        <tr>
+          <td class="txt_blue">用户名：
+            <input type="text" tabIndex=10 maxLength=20 name="username" class="username" style="width:120" onkeydown="if(event.keyCode==13){Userloginon('<?php echo $this->_tpl_vars['boardurl']; ?>
+index.php?action=login&option=login','loginin','fshowwindows(\'<?php echo $this->_tpl_vars['boardurl']; ?>
+index.php?action=login\',1,\'会员登陆\');','');}" /></td>
+        </tr>
+        <tr>
+          <td class="txt_blue">密　码：
+		  <input type="password" tabIndex=11 maxlength="20" name="password" class="password" style="width:120" onkeydown="if(event.keyCode==13){Userloginon('<?php echo $this->_tpl_vars['boardurl']; ?>
+index.php?action=login&option=login','loginin','fshowwindows(\'<?php echo $this->_tpl_vars['boardurl']; ?>
+index.php?action=login\',1,\'会员登陆\');','');}" /></td>
+        </tr>
+        <tr>
+          <td align="center" class="txt_blue">
+		  <input tabIndex=12 style="background:url(image/lvyou/bt_login.gif);width:73;height:23; border:0;cursor: hand;" type="button" name="submit" value=" " onclick="Userloginon('<?php echo $this->_tpl_vars['boardurl']; ?>
+index.php?action=login&option=login','loginin','fshowwindows(\'<?php echo $this->_tpl_vars['boardurl']; ?>
+index.php?action=login\',1,\'会员登陆\');','');" /> &nbsp; <a href='javascript:;' onClick="fshowwindows('<?php echo $this->_tpl_vars['boardurl']; ?>
+index.php?action=login&option=sendpwd',1,'忘记密码');" class='txt_blue'>忘记密码</a></td>
+        </tr>
+      </form>
+    </table></td>
+  </tr>
+</table>

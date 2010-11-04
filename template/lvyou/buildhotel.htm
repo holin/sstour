@@ -1,0 +1,100 @@
+<HTML>
+<HEAD>
+<Base href="<-{$boardurl}->">
+<TITLE><-{$config.title}->_<-{$configwebname}-></TITLE>
+<meta name=robots content='index,follow'>
+<Meta http-equiv="Widow-target" Content="_top">
+<meta name=keywords content='<-{$config.keywords}->'>
+<meta name=description content='<-{$config.description}->'>
+<META http-equiv=Content-Type content="text/html; charset=<-{$charset}->">
+<LINK href="<-{$boardurl}->lang/style.css" type=text/css rel=stylesheet>
+<LINK href="<-{$boardurl}->image/lvyou/style.css" type=text/css rel=stylesheet>
+<script>var hostpath = '<-{$boardurl}->';</script>
+<SCRIPT language=JavaScript src='<-{$boardurl}->lang/ajax.js'></SCRIPT>
+<SCRIPT language=JavaScript src='<-{$boardurl}->lang/js.js'></SCRIPT>
+<script>
+function publish_hotel()
+{
+	if ($('subject').value == ''){
+		_error_msg_show('酒店名不能识别通过:S');
+		$('subject').focus();
+		$('submit').disabled=false;
+		return false;
+	}
+	if ($('addess').value == ''){
+		_error_msg_show('地址不能识别通过:S');
+		$('addess').focus();
+		$('submit').disabled=false;
+		return false;
+	}
+	if ($('contact').value == ''){
+		_error_msg_show('联系人不能识别通过:S');
+		$('contact').focus();
+		$('submit').disabled=false;
+		return false;
+	}
+	if ($('phone').value == ''){
+		_error_msg_show('电话不能识别通过:S');
+		$('phone').focus();
+		$('submit').disabled=false;
+		return false;
+	}
+	
+	var s = new dialog();s.init();
+	s.set('src','3');
+	s.set('title','系统提示');
+	s.event('正在上传请耐心等待', ' ','',' ');
+	document.getElementById('publishgamedate').action = "<-{$boardurl}->index.php?action=update&option=buildhotel&id=<-{$sql_hotel.hot_id}->";
+}
+</script>
+</HEAD>
+<body>
+<div class="subheader" style="margin-left:10px"><-{if $sql_hotel.hot_id}-><-{$sql_hotel.hot_subject|strip|strip_tags}-><-{else}->升级为酒店管理<-{/if}-></div>
+<div class="left" style="margin-left:20px">
+  <form action="" method="post" onSubmit="return publish_hotel();" enctype="multipart/form-data" name="publishgamedate" id="publishgamedate" target="updateFrame">
+    <div class="left_articles">
+      <h2>酒店名：
+        <input name="subject" type="text" style="width:150px" value="<-{$sql_hotel.hot_subject|strip|strip_tags}->" />
+      </h2>
+	  <h2>地址：
+        <input name="addess" style="width:150px" value="<-{$sql_hotel.hot_addess|strip|strip_tags}->">
+      </h2>
+	  <h2>TAG：
+        <input onFocus="showtextcontent('index.php?action=hotel&option=showtage');" type="text" name="blog_tags" style="width:150px" value="<-{$sql_hotel.hot_tages|strip|strip_tags}->">
+      </h2>	
+	  <h2>星级：
+        <div class="start">
+		  <ul>
+<li><a onMouseOver="rateHover(0,6,'start');" onMouseOut="rateOut('startseld',6,'start');" onClick="setRate('0','startseld');" title="无"> </a></li>
+		    <li><a id=start1 onMouseOver="rateHover(1,6,'start');" onMouseOut="rateOut('startseld',6,'start');" onClick="setRate('1','startseld');" class=seldea title="一星级"> </a></li>
+			<li><a id=start2 onMouseOver="rateHover(2,6,'start');" onMouseOut="rateOut('startseld',6,'start');" onClick="setRate('2','startseld');" title="二星级"> </a></li>
+			<li><a id=start3 onMouseOver="rateHover(3,6,'start');" onMouseOut="rateOut('startseld',6,'start');" onClick="setRate('3','startseld');" title="三星级"> </a></li>
+			<li><a id=start4 onMouseOver="rateHover(4,6,'start');" onMouseOut="rateOut('startseld',6,'start');" onClick="setRate('4','startseld');" title="四星级"> </a></li>
+			<li><a id=start5 onMouseOver="rateHover(5,6,'start');" onMouseOut="rateOut('startseld',6,'start');" onClick="setRate('5','startseld');" title="五星级"> </a></li>
+			<li><a id=start6 onMouseOver="rateHover(6,6,'start');" onMouseOut="rateOut('startseld',6,'start');" onClick="setRate('6','startseld');" title="超五星级"> </a></li>
+		  </ul>
+		  <-{if $sql_hotel.hot_start> 0}->
+		  <input type="hidden" name="startseld" value="<-{$sql_hotel.hot_start|strip|strip_tags}->" />
+		  <script>rateHover(<-{$sql_hotel.hot_start}->,6,'start')</script>
+		  <-{else}->
+		  <input type="hidden" name="startseld" value="1" />
+		  <-{/if}->
+		</div>
+      </h2>
+	  <h2>联系人：
+        <input name="contact" style="width:150px" value="<-{$sql_hotel.hot_contact|strip|strip_tags}->">
+      </h2>
+	  <h2>电话：
+        <input name="phone" style="width:150px" value="<-{$sql_hotel.hot_phone|strip|strip_tags}->">
+      </h2>  
+    </div>
+	<div class="left_articles">
+	<input type="hidden" name="update" value="update">
+	<input type=submit style="background:url(<-{$boardurl}->image/edit/smb_btn_bg.gif);width:62;height:23; border:0;cursor: hand;" name=submit id=submit value=' 提 交 '>	
+	</div>
+  </form>
+</div>
+<div id=showtage></div>
+<iframe width=0 height=0  frameborder=0 id=updateFrame name=updateFrame src='ioime.php'>您的浏览器不支持此功能，请您使用最新的版本。</iframe>
+</body>
+</HTML>

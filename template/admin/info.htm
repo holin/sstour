@@ -1,0 +1,28 @@
+<table width=98% align=center cellspacing=1 cellpadding=3 class=i_table>
+  <tr>
+    <td colspan="4" class=head> 简 介 信 息 管 理</td>
+  </tr>
+  <tr>
+    <td class=b>分类</td>
+    <td class=b>标题</td>
+    <td class=b>发布时间</td>
+    <td class=b>操作</td>
+  </tr>
+  <-{foreach from=$sql_news item=news}->
+  <tr id='list<-{$news.new_id}->' onclick="onclickclass('list<-{$news.new_id}->');" class=movclick style='cursor: hand;'>
+    <td><-{$news.type_subject}-></td>
+    <td><-{$news.new_subject|truncate:30:"...":true}-></td>
+    <td><-{$news.new_date}-></td>
+    <td><a href="javascript:fshowwindows('admin.php?action=<-{$action}->&option=newsedit&type=edit&id=<-{$news.new_id}->','1','编辑简介');">编辑</a> <a href="javascript:_confirm_msg_show('确定删除','Userloginon(\'admin.php?action=<-{$action}->&option=del&id=<-{$news.new_id}->\',\'\',\'\',\'\');$(\'list<-{$news.new_id}->\').parentNode.removeChild($(\'list<-{$news.new_id}->\'));','','')">删除</a></td>
+  </tr>
+  <-{/foreach}->
+  <tr>
+    <td colspan="4" class=b><-{$fpageup}-></td>
+  </tr>
+</table>
+<BR />
+<center>
+  <input type=hidden name=update value='update'>
+  &nbsp; &nbsp;
+  <input type="button" name="Submit" id=Submit value=" 添 加 简 介 " onClick="javascript:fshowwindows('admin.php?action=<-{$action}->&option=newsedit&type=edit','1','添加简介');">
+</center>

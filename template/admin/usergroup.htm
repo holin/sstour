@@ -1,0 +1,22 @@
+<form name="formupdate" method="post" action="admin.php?action=<-{$action}->&option=<-{$option}->" enctype="multipart/form-data">
+  <table align="center" cellpadding="3" cellspacing="1" class="i_table">
+    <tbody>
+      <tr class=b>
+        <td>原始密码:</td>
+		<td><input name="oldpwd" type="text" id="oldpwd" /></td>
+      </tr>
+	  <tr class=b>
+        <td>新密码:</td>
+		<td><input name="newpwd" type="text" id="newpwd" /></td>
+      </tr>
+	  <tr class=b>
+        <td>重复确认密码:</td>
+		<td><input name="repwd" type="text" id="repwd" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <BR />
+  <center><input type=hidden name=update value='update'> &nbsp; 
+    <input type="button" name="Submit" id=Submit value=" 提 交 " onClick="saveUserlogin('admin.php?action=<-{$action}->&option=<-{$option}->','formupdate','','getNews(\'showtable\',\'admin.php?action=<-{$action}->\')')">
+  </center>
+</form>

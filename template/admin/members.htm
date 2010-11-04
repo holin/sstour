@@ -1,0 +1,55 @@
+<-{if $option == "index"}->
+<form name="formupdate" method="post" action="">
+<table width=98% align=center cellspacing=1 cellpadding=3 class=i_table>
+  <tr>
+    <td colspan="4" class=head> 用 户 信 息 管 理</td>
+  </tr>
+  <tr>
+    <td class=b>用户名</td>
+    <td class=b>组</td>
+    <td class=b>邮箱</td>
+    <td class=b>操作</td>
+  </tr>
+  <-{foreach from=$sql_news item=news}->
+  <tr id='list<-{$news.uid}->' onclick="onclickclass('list<-{$news.uid}->');" class=movclick style='cursor: hand;'>
+    <td><-{$news.username}-></td>
+    <td><-{$news.group_name}-></td>
+    <td><-{$news.useremail}-></td>
+    <td><a href="javascript:fshowwindowsopen('showwindow');fshowwindows('admin.php?action=<-{$action}->&option=newsedit&id=<-{$news.uid}->&page=<-{$nPage}->',1,'编辑用户');">编辑</a> 
+	<a href="javascript:_confirm_msg_show('确定删除用户<-{$news.username}->', 'saveUserlogin(\'admin.php?action=<-{$action}->&option=del&id=<-{$news.uid}->\',\'formupdate\',\'\',\'getNews(\\\'showtable\\\',\\\'admin.php?action=<-{$action}->\\\')\')', '', '');">删除</a></td>
+  </tr>
+  <-{/foreach}->
+  <tr>
+    <td colspan="4" class=b><-{$fpageup}-></td>
+  </tr>
+  <tr>
+    <td colspan="4" class=b>用户名:<input name="Keyword" id=Keyword type="text" size="20" value="<-{$Keyword}->"><a href="javascript:getNews('showtable','admin.php?action=<-{$action}->&Keyword='+escape(document.getElementById('Keyword').value));">查询</a></td>
+  </tr>
+</table>
+</form>
+<-{elseif $option == "newsedit"}->
+<form name=formupdatedit method=post action=''><input type=hidden name=edit value='edit'>
+<table width=98% align=center cellspacing=1 cellpadding=3 class=i_table>
+  <tr>
+    <td class=head colspan="2"> 用 户 信 息 管 理</td>
+  </tr>
+  <tr>
+    <td class=b>用户名：</td><td><input type=text name='username' value='<-{$sql_news.username}->'></td>
+  </tr>
+  <tr>
+    <td class=b>密码：</td><td><input type=text name='userpwd' value=''>(不修改可不填)</td>
+  </tr>
+  <tr>
+    <td class=b>用户组：</td><td><select name='groupid'><-{$showoption}-></select></td>
+  </tr>
+  <tr>
+    <td class=b>邮箱地址：</td><td><input type=text name='useremail' value='<-{$sql_news.useremail}->'></td>
+  </tr>
+</table>
+<center>
+    <input type=hidden name="uid" value='<-{$sql_news.uid}->'>    
+    <input type=hidden name=update value='update'>	
+	<input id=Submit name=Submit type=button style="width:62px;height:22px;border:0;background:url('./image/edit/smb_btn_bg.gif');line-height:20px;" value='确认' onfocus=true onclick="saveUserlogin('admin.php?action=<-{$action}->&option=<-{$option}->','formupdatedit','','getNews(\'showtable\',\'admin.php?action=members&page=<-{$nPage}->\');fshowwindowsopen(\'showwindow\');fshowwindows(\'admin.php?action=<-{$action}->&option=newsedit&id=<-{$sql_news.uid}->\',1,\'编辑用户\');');" /> &nbsp; <input id=Submit name=Submit type=button style="width:62px;height:22px;border:0;background:url('./image/edit/smb_btn_bg.gif');line-height:20px;" value='取消' onclick="new dialog().reset();fshowwindowsclos('showwindow');" />
+  </center>
+</form>
+<-{/if}->

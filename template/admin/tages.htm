@@ -1,0 +1,33 @@
+<form name="formupdatedit" method="post" action="">
+  <table width=98% align=center cellspacing=1 cellpadding=3 class=i_table>
+    <tr>
+      <td colspan="3" class=head> 图 片 信 息 管 理</td>
+    </tr>
+	<tr>
+      <td>TAG</td>
+	  <td>使用量</td>
+	  <td>操作</td>
+    </tr>
+    <-{foreach from=$sql_comtag item=comtag}->
+    <tr id='list<-{$comtag.tag_id}->' onclick="onclickclass('list<-{$comtag.tag_id}->');" class=movclick style='cursor: hand;'>
+      <td><-{$comtag.tag_subject}-></td>
+	  <td><-{$comtag.tag_num}-></td>
+      <td><input type=hidden name="tagid[<-{$comtag.tag_id}->]" value='<-{$comtag.tag_id}->'>  
+	  <input type="checkbox" name="del[<-{$comtag.tag_id}->]" value="<-{$comtag.tag_id}->" /></td>
+    </tr>
+    <-{/foreach}->
+    <tr>
+      <td colspan="3" class=b><-{$fpageup}-></td>
+    </tr>
+    <tr>
+      <td colspan="3" class=b> 关键字:
+        <input name="Keyword" id=Keyword type="text" size="20" value="<-{$Keyword}->">
+        <a href="javascript:getNews('showtable','admin.php?action=<-{$action}->&Keyword='+escape(document.getElementById('Keyword').value));">查询</a></td>
+    </tr>
+  </table>
+  <center>
+    <input type=hidden name=update value='update'>
+	<input type='button' style="width:62px;height:22px;border:0;background:url('./image/edit/smb_btn_bg.gif');line-height:20px;" name='chkall' value=' 全 选 ' onclick='CheckAll(this.form)'>
+    <input id=Submit name=Submit type=button style="width:62px;height:22px;border:0;background:url('./image/edit/smb_btn_bg.gif');line-height:20px;" value='删除' onfocus=true onclick="saveUserlogin('admin.php?action=<-{$action}->&option=del','formupdatedit','','getNews(\'showtable\',\'admin.php?action=<-{$action}->&Keyword=<-{$Keyword}->&page=<-{$nPage}->\');');" />
+  </center>
+</form>

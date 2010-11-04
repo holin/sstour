@@ -1,0 +1,99 @@
+<-{if $option == "index"}->
+<form name="formupdate" method="post">
+  <table width=98% align=center cellspacing=1 cellpadding=3 class=i_table>
+    <tr>
+      <td colspan="8" class=head> 数 据 备 份 操 作</td>
+    </tr>
+    <tr>
+      <td class=b>表</td>
+      <td class=b>记录数</td>
+      <td class=b>类型</td>
+      <td class=b>整理</td>
+      <td class=b>递增</td>
+      <td class=b>多余</td>
+      <td class=b>操作</td>
+      <td class=b>选中</td>
+    </tr>
+    <-{foreach from=$sql_rs item=sql}->
+    <tr>
+      <td class=b><-{$sql.Name}-></td>
+      <td class=b><-{$sql.Rows}-></td>
+      <td class=b><-{$sql.Engine}-></td>
+      <td class=b><-{$sql.Collation}-></td>
+      <td class=b><-{$sql.Auto_increment}-></td>
+      <td class=b><-{$sql.Data_free}-></td>
+      <td class=b><a href="javascript:if(confirm('确定操作吗?'))saveUserlogin('admin.php?action=<-{$action}->&option=sqlupdate&table=<-{$sql.Name}->&show=truncate','formupdate','','getNews(\'showtable\',\'admin.php?action=<-{$action}->\')');void(null)">清空</a>&nbsp;
+	  <a href="javascript:fshowwindowsopen('showwindow');getNews('showwindow','admin.php?action=<-{$action}->&option=sqlupdate&table=<-{$sql.Name}->&show=select');">浏览</a>&nbsp;
+	  <a href="javascript:fshowwindowsopen('showwindow');getNews('showwindow','admin.php?action=<-{$action}->&option=columns&table=<-{$sql.Name}->');">结构</a>&nbsp;
+	  <a href="javascript:if(confirm('确定操作吗?'))saveUserlogin('admin.php?action=<-{$action}->&option=sqlupdate&table=<-{$sql.Name}->&show=deltable','formupdate','','getNews(\'showtable\',\'admin.php?action=<-{$action}->\')');void(null)">删除</a></td>
+      <td class=b><input type="checkbox" name=tablename[] value="<-{$sql.Name}->"></td>
+    </tr>
+    <-{/foreach}->
+  </table>
+  <BR />
+  <center>
+    <input type=hidden name=update value='update'>
+    &nbsp;
+    <input type='button' name='chkall' value=' 全 选 ' onclick='CheckAll(this.form)'>
+    &nbsp;
+    <input type=radio value=1 name="radiocheck">
+    检查 修复 优化数据表(Optimization) &nbsp;
+	<input type="button" name="Optimization" id=Optimization value=" 优化(Optimization) " onClick="saveUserlogin('admin.php?action=<-{$action}->&option=<-{$option}->','formupdate','','getNews(\'showtable\',\'admin.php?action=<-{$action}->\')');" />
+    <br />
+	按进制备份(Backup) &nbsp;<input type="text" id="sizelimit" name="sizelimit" value="2048" size="8" /> &nbsp; <input type=button value=" 备份(Backup) " onClick="saveUserlogin('admin.php?action=<-{$action}->&option=sqlback&sizelimit='+document.getElementById('sizelimit').value,'formupdate','','getNews(\'showtable\',\'admin.php?action=<-{$action}->\');');" name="Submit" id=Submit />
+  </center>
+</form>
+<-{elseif $option == "sqlupdate"}->
+<div align=right class=itemtag><img src='image/msg/edit.gif' alt='保存' onClick="saveUserlogin('admin.php?action=<-{$action}->&option=<-{$option}->&table=<-{$sqltable}->','formupdate','','getNews(\'showtable\',\'admin.php?action=<-{$action}->\')')" style='cursor: hand;' /> <img src='image/msg/closed.gif' alt='关闭' onclick="getNews('showtable','admin.php?action=<-{$action}->');fshowwindowsclos('showwindow');" style='cursor: hand;'></div>
+<form name="formupdate" method="post">
+  <table width="98%" align="center" cellpadding="3" cellspacing="1" class="i_table">
+	<tbody>
+	<tr><td colspan=24 align="center" class="head">数据表查询</td></tr>
+	<tr class=b align="center">
+	<-{foreach from=$sql_users key=key item=sqlfile}->
+		<td><-{$key}-></td>
+	<-{/foreach}->
+	</tr>
+	<-{foreach from=$sql_user key=sqlkey item=showtable}->
+		<tr class=b align="center">
+		<-{foreach from=$showtable item=file}->
+		<td><textarea name="sqltext[<-{$sqlkey}->]"><-{$file|regex_replace:"/[\r\t\n]/":''}-></textarea></td>
+		<-{/foreach}->
+		</tr>
+	<-{/foreach}->
+	<tr><td colspan=24 align="center"><-{$fpageup}-></td></tr>
+	</tbody>
+</table>
+  <center>
+    <input type=hidden name=update value='update'>
+	<input type="hidden" name="Submit" id=Submit value="" >    
+  </center>
+</form>
+<div align=right class=itemtag><img src='image/msg/edit.gif' alt='保存' onClick="saveUserlogin('admin.php?action=<-{$action}->&option=<-{$option}->&table=<-{$sqltable}->','formupdate','','getNews(\'showtable\',\'admin.php?action=<-{$action}->\')')" style='cursor: hand;' /> <img src='image/msg/closed.gif' alt='关闭' onclick="getNews('showtable','admin.php?action=<-{$action}->');fshowwindowsclos('showwindow');" style='cursor: hand;'></div>
+<-{elseif $option == "columns"}->
+<div align=right class=itemtag><img src='image/msg/closed.gif' alt='关闭' onclick="fshowwindowsclos('showwindow');" style='cursor: hand;'></div>
+<table width="98%" align="center" cellpadding="3" cellspacing="1" class="i_table">
+	<tr><td colspan="7" align="center" class="head">数据表<-{$table}->结构</td></tr>
+	<tr class=b align="center">
+		<td>字段</td>
+        <td>类型</td>
+        <td>整理</td>
+        <td>属性</td>
+        <td>Null</td>
+        <td>额外</td>
+	    <td>操作</td>
+	</tr>
+	<-{foreach from=$sql_rs item=sqlfile}->
+	<tr class=b align="center">
+		<td><-{$sqlfile.Field}-></td>
+        <td><-{$sqlfile.Type}-></td>
+        <td><-{$sqlfile.Null}-></td>
+        <td><-{$sqlfile.Key}-></td>
+        <td><-{$sqlfile.Default}-></td>
+        <td><-{$sqlfile.Extra}-></td>
+        <td><a href="javascript:if(confirm('确定操作吗?'))saveUserlogin('admin.php?action=<-{$action}->&option=<-{$option}->&table=<-{$table}->&del=<-{$sqlfile.Field}->','formupdate','','getNews(\'showwindow\',\'admin.php?action=<-{$action}->&option=<-{$option}->\')');void(null)">删除</a></td>
+	</tr>
+	<-{/foreach}->
+</table>
+<div align=right class=itemtag><img src='image/msg/closed.gif' alt='关闭' onclick="fshowwindowsclos('showwindow');" style='cursor: hand;'></div>
+<-{/if}->

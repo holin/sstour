@@ -1,0 +1,75 @@
+<-{include file="header.htm"}->
+<table width="954" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff" class="acount_line">
+  <tr>
+    <td width="194" valign="top" background="image/lvyou/bg_left.gif" class="left_line"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="100%" id=showlogin></td>
+        </tr>
+        <tr>
+          <td id=showabout></td>
+        </tr>
+      </table></td>
+    <td width="562" valign="top"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td colspan="3"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td class="url">您现在的位置：<a href="index.php">首页</a> &gt; <a href="index.php?action=info&option=merchants">招商引资</a></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td height="3" colspan="3"></td>
+        </tr>
+        <tr>
+          <td width="7%"  class="title_green"><img src="image/lvyou/icon_7.gif" width="35" height="24"></td>
+          <td width="93%"  class="title_green"><-{if $id!=''}-><-{$sql_class.type_subject}-><-{else}->招商引资<-{/if}-></td>
+        </tr>
+        <tr>
+          <td colspan="2" bgcolor="#EBF9FD"><table width="96%" border="0" align="center">
+		      <-{foreach from=$sql_info item=info}->
+              <tr class="line_bg3">
+                <td width="84%"><img src="image/lvyou/ico_new.gif" width="9" height="9"> <a href="index.php?action=info&option=merchantssingle&id=<-{$info.new_id}->"><-{$info.new_subject}-></a></td>
+                <td width="16%" class="txt_day"><-{$info.new_date|date_format:"%Y-%m-%d"}-></td>
+              </tr>
+			  <-{/foreach}->
+          </table></td>
+        </tr>
+        <tr>
+          <td height="50" colspan="2" bgcolor="#EBF9FD"><table width="94%" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="2%"><img src="image/lvyou/no_left.gif" width="10" height="20"></td>
+                <td width="95%" align="center" background="image/lvyou/no_mid.gif"><-{$fpageup}-></td>
+                <td width="3%"><img src="image/lvyou/no_right.gif" width="16" height="20"></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table></td>
+    <td width="194" valign="top" bgcolor="#12a0d0"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td height="30" class="txt_title_white">&nbsp;<img src="image/lvyou/ico_2.gif" width="8" height="8"> 天气预报</td>
+        </tr>
+        <tr>
+          <td height="130" align="center" bgcolor="#C1E9FF"><iframe width='180' height='260' scrolling='no' frameborder='0' src= 'http://www.sstour.net/?action=weather&option=weather'></iframe></td>
+        </tr>
+        <tr>
+          <td><img src="image/lvyou/index_61.gif" width="194" height="65"></td>
+        </tr>
+        <tr>
+          <td height="151" valign="top" background="image/lvyou/index_69.gif" id=showguide></td>
+        </tr>
+        <tr>
+          <td><img src="image/lvyou/index_84.gif" width="194" height="52"></td>
+        </tr>
+        <tr>
+          <td id=showline></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<script>
+getNews('showlogin','<-{$boardurl}->index.php?action=login&option=indexlogin');
+getNews('showabout','<-{$boardurl}->index.php?action=index&option=showabout');
+getNews('showguide','<-{$boardurl}->index.php?action=index&option=showguide');
+getNews('showline','<-{$boardurl}->index.php?action=index&option=showline');
+</script>
+<-{include file="fooder.htm"}->

@@ -1,0 +1,90 @@
+<form name="formupdate" method="post" action="">
+  <table width=98% align=center cellspacing=1 cellpadding=3 class=i_table>
+    <tr>
+      <td colspan="7" class=head> 插 件 设 置 管 理</td>
+    </tr>
+	<tr>
+      <td class=b>插件</td>
+	  <td class=b>标识</td>
+      <td class=b>缓存开启</td>
+      <td class=b>缓存时间</td>
+      <td class=b>静态化</td>
+	  <td class=b>显示条数</td>
+	  <td class=b>编辑</td>
+	</tr>
+<-{foreach from=$sql_config item=config}->
+	<tr>
+      <td class=b>
+	  <input type="text" size="10" name="hack_subject[<-{$config.hack_action}->]" value="<-{$config.hack_subject}->">
+	  </td>
+	  <td class=b>
+	  <input type="text" size="10" name="hack_action[<-{$config.hack_action}->]" value="<-{$config.hack_action}->">
+	  </td>
+      <td class=b>
+<-{if $config.hack_cache eq "1"}->
+	<select name="hack_cache[<-{$config.hack_action}->]">
+	<option value="0" />否</option>
+	<option value="1" selected="selected" />是</option>
+	</select>	
+<-{else}->
+	<select name="hack_cache[<-{$config.hack_action}->]">
+	<option value="0" selected="selected" />否</option>
+	<option value="1" />是</option>
+	</select>
+<-{/if}->
+	  </td>
+      <td class=b>
+	  <input type="text" size="10" name="hack_cachetime[<-{$config.hack_action}->]" value="<-{$config.hack_cachetime}->">
+	  </td>
+      <td class=b>
+<-{if $config.hack_htmlteml eq "1"}->
+	<select name="hack_htmlteml[<-{$config.hack_action}->]">
+	<option value="0" />否</option>
+	<option value="1" selected="selected" />是</option>
+	</select>
+<-{else}->
+	<select name="hack_htmlteml[<-{$config.hack_action}->]">
+	<option value="0" selected="selected" />否</option>
+	<option value="1" />是</option>
+	</select>
+<-{/if}->
+	  </td>
+	  <td class=b><input type="text" name="hack_numser[<-{$config.hack_action}->]" size=4 value='<-{$config.hack_numser}->' /></td>
+	  <td class=b><input type=hidden name="action[<-{$config.hack_action}->]" value='<-{$config.hack_action}->'><a href="javascript:fshowwindowsopen('showwindow');fshowwindows('admin.php?action=<-{$action}->&option=edit&id=<-{$config.hack_action}->',1,'编辑插件');">编辑</a> <a href="javascript:_confirm_msg_show('确定删除<-{$config.hack_action}->', 'saveUserlogin(\'admin.php?action=<-{$action}->&option=del&id=<-{$config.hack_action}->\',\'formupdate\',\'\',\'getNews(\\\'showtable\\\',\\\'admin.php?action=<-{$action}->\\\')\')', '', '')">删除</a></td>
+	</tr>
+<-{/foreach}->
+  </table>
+  <BR />
+  <center><input type="button" name="cleared" id=Submit value=" 清理静态页面 " onClick="saveUserlogin('admin.php?action=<-{$action}->&option=cleared','formupdate','','getNews(\'showtable\',\'admin.php?action=hack\')')">
+  </center>
+  <BR />
+  <table width=98% align=center cellspacing=1 cellpadding=3 class=i_table>
+    <tr>
+      <td colspan="6" class=head> 添 加 插 件 模 块</td>
+    </tr>
+	<tr>
+      <td class=b>插件</td>
+	  <td class=b>标识</td>
+      <td class=b>缓存开启</td>
+      <td class=b>缓存时间</td>
+	  <td class=b>显示条数</td>
+      <td class=b>静态化</td>
+	</tr>
+	<tr>
+      <td class=b><input type="text" size="10" name="addsubject" value=""></td>
+	  <td class=b><input type="text" size="10" name="addaction" value=""></td>
+      <td class=b><select name="addcache">
+	  <option value="0" selected="selected" />否</option>
+	  <option value="1" />是</option></select></td>
+      <td class=b><input type="text" size="10" name="addcachetime" value=""></td>
+	  <td class=b><input type="text" name="addnumser" size=4 value='10' /></td>
+      <td class=b><select name="addhtmlteml">
+	  <option value="0" selected="selected" />否</option>
+	  <option value="1" />是</option></select></td>
+	</tr>
+  </table>
+  <BR />
+  <center><input type=hidden name=update value='update'> &nbsp; 
+    <input type="button" name="Submit" id=Submit value=" 提 交 " onClick="saveUserlogin('admin.php?action=<-{$action}->&option=<-{$option}->','formupdate','','getNews(\'showtable\',\'admin.php?action=hack\')')">
+  </center>
+</form>

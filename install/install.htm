@@ -1,0 +1,247 @@
+<!--
+<?
+print <<<EOT
+-->
+<html><head><title>企业建站系统 Installation</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+</head>
+<style type="text/css">
+<!--
+body {
+	background-color: #7B869A;
+}
+table {
+	font-size: 12px;
+	text-decoration: none;
+	background-color: #CCCCCC;
+	border: 1px solid #333333;
+}
+.title {
+	font-size: large;
+	text-decoration: none;
+	font-weight: bold;
+}
+.t {font-family: Verdana, Arial, Sans-serif;font-size  : 12px;padding-left: 10px;font-weight: normal;color : #333366;}
+-->
+</style>
+<body>
+<!--
+EOT;
+if($_POST['agree']=='')
+{
+print <<<EOT
+-->
+<table width="80%"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" class="title">使用企业建站系统协议</td>
+  </tr>
+</table>
+<table width="80%"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><p>(一) 运行环境需求: PHP+MYSQL
+        <br>
+        建议PHP版本在4.1以上<br>
+        MYSQL版本在4.0以上<br>
+        系统大量采用ajax技术建议服务器APACHE在2.0以上</p>
+      <p>(二) 安装步骤: <br>
+        ( 如果您在安装过程中出现问题或有疑问,请进入 http://www.oi77.com/bbs/thread.php?fid-19.html 提问)</p>
+      <p>(1) Linux 或 Freebsd 服务器下安装方法
+      
+     第一步: 使用ftp工具中的二进制模式,将该软件包里的 upload 目录及其文件上传到您的空间
+                   假设上传后目录仍旧为 upload
+      
+     第二步: 先确认以下目录或文件属性为 (777) 可写模式
+           data
+           data/sql_config.php
+           data/bbscache
+           data/groupdb
+           data/style
+           attachment
+           htm_data
+           image
+           image/upload
+           image/cn_img
+      
+     第三步: 运行 http://yourwebsite/upload/install.php 安装程序,填入服务器配置信息与创始人
+                   相关资料, 完成安装!</p>
+      <p>(2) Windows 服务器下安装方法
+        
+     第一步: 将解压后的文件上传至你的空间，保持目录结构不变，假设目录为upload
+        
+     第二步: 运行 http://yourwebsite/upload/install.php 安装程序,填入服务器配置信息与创始人
+             相关资料, 完成安装!</p>
+      <p>(三) 系统使用者未经过本人同意不得更改系统版权</p>
+      <p>(四) 房地产系统是开源化系统提供下载学习，您需要使用于商业请与我们取得联系。没有购买系统不提供功能升级服务，只提供错误和不安全性升级。</p>
+      </td>
+  </tr>
+</table>
+<table width="80%"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center">
+      <form name="form1" method="post" action="install.php">      
+      <input type="submit" name="Submit" value="同意"> &nbsp; 
+      <input type="hidden" name="agree" value="1"> &nbsp; 
+      <input type="button" name="exit" value="我不同意" onClick="javascript: window.close();">
+	  </form>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+}elseif($_POST['agree'] == '1'){
+print <<<EOT
+-->
+<table width="80%"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" class="title">服务器基本信息</td>
+  </tr>
+</table>
+<table width="80%"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center">运行时间：{$altertime}<br>
+      PHP版本：{$sysversion}<br>
+      服务器目录：{$sysos}<br>
+      文件上传：{$max_upload}<br>
+      程序执行时间：{$max_ex_time}<br>
+      邮件系统：{$sys_mail}<br>
+      COOKIE：{$ifcookie}<br>
+      ===============================================================================================<br>
+      {$include}<br>
+	  {$lang}<br>
+	  {$tmp}
+	</td>
+  </tr>
+</table>
+<table width="80%"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center"><form name="form1" method="post" action="install.php">
+		<input type="button" name="exit" value="上一步" onClick="history.go(-1)"> &nbsp; 
+        <input type="hidden" name="agree" value="2"> &nbsp; 
+        <input type="submit" name="Submit" value="下一步">
+    </form></td>
+  </tr>
+</table>
+<!--
+EOT;
+}elseif($_POST['agree'] == '2'){
+print <<<EOT
+-->
+<table width="80%"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center"><strong class="title">数据库设置</strong></td>
+  </tr>
+</table>
+<table width="80%"  border="0" align="center" cellpadding="0" cellspacing="0">
+<form name="form2" method="post" action="install.php">
+  <tr>
+    <td align="center">
+	<table width="60%" align=center cellpadding=3 cellspacing=1 bordercolor="#6A71A3">	
+        <tr>
+          <td class='t' colspan=2 bgcolor='#6A71A3'><font color="#FFFFFF">数据库设置</font></td>
+        </tr>
+        <tr>
+          <td class='t' width='40%'>&nbsp;&nbsp;主机名</td>
+          <td class='t'><input type='text' name='SERVER' value='localhost'></td>
+        </tr>
+        <tr>
+          <td class='t'>&nbsp;&nbsp;数据库</td>
+          <td class='t'><input type='text' name='SQLNAME' value='hyt'></td>
+        </tr>
+		<tr>
+          <td class='t'>&nbsp;&nbsp;数据库类型</td>
+          <td class='t'><input type='text' name='SQLTYPE' value='mysql'></td>
+        </tr>
+		<tr>
+          <td class='t'>&nbsp;&nbsp;数据库端口</td>
+          <td class='t'><input type='text' name='SQLPORT' value='3306'></td>
+        </tr>
+		<tr>
+          <td class='t'>&nbsp;&nbsp;数据库用户名</td>
+          <td class='t'><input type='text' name='SQLUSER' value='root'></td>
+        </tr>
+        <tr>
+          <td class='t'>&nbsp;&nbsp;数据库密码</td>
+          <td class='t'><input type='password' name='SQLPASSWORD' value='123456'></td>
+        </tr>        		
+        <tr>
+          <td class='t'>&nbsp;&nbsp;数据前缀</td>
+          <td class='t'><input type='text' name='SQLZUI' value='eb_'></td>
+        </tr>
+		<tr>
+          <td class='t'>&nbsp;&nbsp;数据连接类型</td>
+          <td class='t'><select name="SQLLINK">
+            <option value="0">短连接</option>
+			<option value="1">长连接</option>
+          </select></td>
+		</tr>
+		<tr>
+          <td class='t'>&nbsp;&nbsp;数据库字符集</td>
+          <td class='t'><select name="SQLCHAR">
+            <option value="GBK">GBK</option>
+			<option value="BIG5">BIG5</option>
+			<option value="latinl">LATINL</option>
+          </select></td>
+		</tr>
+    </table>
+	<br>
+	<table width="60%" cellspacing=1 cellpadding=3 align=center>
+	
+      <tr>
+        <td class='t' colspan=2 bgcolor='#6A71A3'><font color="#FFFFFF">系统管理员设置</font></td>
+      </tr>
+      <tr>
+        <td class='t' width='40%'>&nbsp;&nbsp;管理员</td>
+        <td class='t'><input type='text' name='INSTALL_NAME' value='administrator'></td>
+      </tr>
+      <tr>
+        <td class='t'>&nbsp;&nbsp;密码</td>
+        <td class='t'><input type='password' name='password' value=""></td>
+      </tr>
+      <tr>
+        <td class='t'>&nbsp;&nbsp;确认密码</td>
+        <td class='t'><input type='password' name='password_check' value=""></td>
+      </tr>
+      <tr>
+        <td class='t'>&nbsp;&nbsp; Email:</td>
+        <td class='t'><input type='text' name='adminemail' value='admin@admin.com'></td>
+      </tr>
+    </table>
+	<br>	
+	  <input type="button" name="exit" value="上一步" onClick="history.go(-1)"> &nbsp; 
+        <input type="hidden" name="agree" value="3"> &nbsp; 
+        <input type="submit" name="Submit" value="下一步">
+    </td>
+  </tr>
+  </form>
+</table>
+<!--
+EOT;
+}else{
+print <<<EOT
+-->
+<table width="80%"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" class="title">安装提示</td>
+  </tr>
+</table>
+<table width="80%"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center">{$mesg}</td>
+  </tr>
+</table>
+<table width="80%"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center"><input type="button" name="Submit" value="{$Submit}" onClick="{$onclick}"></td>
+  </tr>
+</table>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</body>
+</html>
+<!--
+EOT;
+?>
+-->

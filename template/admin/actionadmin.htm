@@ -1,0 +1,41 @@
+<form name="formupdate" method="post" action="">
+  <table width=98% align=center cellspacing=1 cellpadding=3 class=i_table>
+    <tr>
+      <td colspan="3" class=head> 插 件 修 改 管 理</td>
+    </tr>
+	<tr>
+      <td class=b>插件</td>
+	  <td class=b>标识</td>
+	  <td class=b>操作</td>
+	</tr>
+<-{foreach from=$sql_config item=config}->
+	<tr>
+      <td class=b>
+	  <input type="text" size="10" name="action_subject[<-{$config.action_action}->]" value="<-{$config.action_subject}->">
+	  </td>
+	  <td class=b>
+	  <input type="text" size="10" name="action_action[<-{$config.action_action}->]" value="<-{$config.action_action}->">
+	  </td>
+	  <td class=b><input type=hidden name="action[<-{$config.action_action}->]" value='<-{$config.action_action}->'><a href="javascript:_confirm_msg_show('确定删除<-{$config.action_action}->', 'saveUserlogin(\'admin.php?action=<-{$action}->&option=del&id=<-{$config.action_action}->\',\'formupdate\',\'\',\'getNews(\\\'showtable\\\',\\\'admin.php?action=<-{$action}->\\\')\')', '', '')">删除</a></td>
+	</tr>
+<-{/foreach}->
+  </table>
+  <BR />
+  <table width=98% align=center cellspacing=1 cellpadding=3 class=i_table>
+    <tr>
+      <td colspan="3" class=head> 添 加 修 改 模 块</td>
+    </tr>
+	<tr>
+      <td class=b>插件</td>
+	  <td class=b>标识</td>
+	</tr>
+	<tr>
+      <td class=b><input type="text" size="10" name="addsubject" value=""></td>
+	  <td class=b><input type="text" size="10" name="addaction" value=""></td>
+	</tr>
+  </table>
+  <BR />
+  <center><input type=hidden name=update value='update'> &nbsp; 
+    <input type="button" name="Submit" id=Submit value=" 提 交 " onClick="saveUserlogin('admin.php?action=<-{$action}->&option=<-{$option}->','formupdate','','getNews(\'showtable\',\'admin.php?action=<-{$action}->\')')">
+  </center>
+</form>

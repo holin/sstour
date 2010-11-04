@@ -1,0 +1,24 @@
+<table width="954" border="0" align="center" cellpadding="0" cellspacing="0" height="70">
+  <tr>
+    <td align="center" bgcolor="#DCDCDC"><span id=showfooder></span><BR />嵊泗旅游局主办 全案策划:<a href="http://www.ioime.com" target="_blank">爱米网络</a><br /><a href="http://www.miibeian.gov.cn/" target="_blank">浙ICP备09104189号</a></td>
+  </tr>
+  <tr>
+    <td align="center" style="background:#FFF" bgcolor="#FFF"><a href="http://www.pingpinganan.gov.cn/web/index.aspx" target="_blank"><img src="/image/lvyou/ppaa.png" border="0" /></a></td>
+  </tr>
+</table>
+<iframe frameborder="0" height="0" width="0" scrolling="no" id=iframeupdate name=iframeupdate></iframe>
+<div id=showwindow></div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? " https://ssl." : " http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-12680942-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<script>
+getNews('showfooder','<-{$boardurl}->index.php?action=index&option=showfooder');
+$('iframeupdate').src = '<-{$boardurl}->ioime.php?<-{$userop}->';
+</script>
+</body></HTML>
